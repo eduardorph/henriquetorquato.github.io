@@ -1,6 +1,6 @@
-function custom_blip(appKey, msg, timer){
+var changeBubble = null;
 
-    var changeBubble = null;
+document.addEventListener("DOMContentLoaded", function(){
 
     var client = new BlipChat();
 
@@ -12,15 +12,16 @@ function custom_blip(appKey, msg, timer){
     const closeId = "blip-chat-close-icon";
     const chatContainer = "blip-chat-container";
 
+    const startingColor = "#ffffff";
     const displayClassName = "display";
     const hideClassName = "hide";
 
-    const appKey = appKey;
+    const appKey = 'dGltZW1wcmVzYXNtb3ZlbDozODA1MmUxYi0wODBiLTQ1NjItODc3MS01MmMxMTA4YzkzN2U=';
 
     const bottomImage = "https://s3-sa-east-1.amazonaws.com/infobots/fiat/customer-care/icon-white-vector.svg";
     const topImage = "https://s3-sa-east-1.amazonaws.com/infobots/fiat/customer-care/icon-gray-vector.svg";
 
-    const bubbleMessage = msg;
+    const bubbleMessage = "Olá, posso ajudar?";
 
     const startMessage = {
         type: "text/plain",
@@ -100,6 +101,9 @@ function custom_blip(appKey, msg, timer){
     client
     .withAppKey(appKey)
     .withButton({color: 'transparent',icon: 'https://assets.website-files.com/5cdec398f68e64462ec081f2/5d9f4eb8f6d0a612a477bad1_chat.gif'})
+    .withEventHandler(BlipChat.CREATE_ACCOUNT_EVENT, function(){
+        client.sendMessage(startMessage);
+    })
     .withEventHandler(BlipChat.ENTER_EVENT, function () {
         closeIcon.classList.add(displayClassName);
         closeIcon.classList.remove(hideClassName);
@@ -117,6 +121,6 @@ function custom_blip(appKey, msg, timer){
     displayBubble();
     setTimeout(function(){
         hideBubble();
-    }, timer);
+    }, 10000);
 
-}
+});
