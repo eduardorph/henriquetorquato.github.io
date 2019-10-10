@@ -12,7 +12,6 @@ function custom_blip(appKey, msg, timer){
     const closeId = "blip-chat-close-icon";
     const chatContainer = "blip-chat-container";
 
-    const startingColor = "#ffffff";
     const displayClassName = "display";
     const hideClassName = "hide";
 
@@ -100,7 +99,7 @@ function custom_blip(appKey, msg, timer){
 
     client
     .withAppKey(appKey)
-    .withButton({ color: startingColor })
+    .withButton({color: 'transparent',icon: 'https://assets.website-files.com/5cdec398f68e64462ec081f2/5d9f4eb8f6d0a612a477bad1_chat.gif'})
     .withEventHandler(BlipChat.ENTER_EVENT, function () {
         closeIcon.classList.add(displayClassName);
         closeIcon.classList.remove(hideClassName);
