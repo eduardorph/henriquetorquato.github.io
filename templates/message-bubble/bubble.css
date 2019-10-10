@@ -20,7 +20,7 @@ g#close {
 
 #message-bubble {
     display: flex;
-    margin-right: 8px;
+    margin-left: 25px;
     cursor: pointer;
     animation: BubbleLoad var(--animation-duration) forwards;
     flex-direction: row-reverse;
