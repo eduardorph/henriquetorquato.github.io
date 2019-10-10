@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function(){
     })
     .build();
 
-    replaceImageStructure();
+    // replaceImageStructure();
     createBubble();
 
     displayBubble();
