@@ -23,6 +23,8 @@ g#close {
     margin-right: 8px;
     cursor: pointer;
     animation: BubbleLoad var(--animation-duration) forwards;
+    flex-direction: row-reverse;
+    -webkit-flex-direction: row-reverse;
 }
 
 #message-bubble.hide {
